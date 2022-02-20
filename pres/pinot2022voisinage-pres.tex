@@ -42,6 +42,7 @@
 \usepackage[english,french]{babel}
 \usepackage{tikz}
 
+\setbeamercovered{invisible}
 \newcommand{\nologo}{\setbeamertemplate{logo}{}}
 
 \newenvironment{foreignpar}[1][english]{%
@@ -51,7 +52,7 @@
     \emph{\foreignlanguage{#1}{#2}}%
 }
 
-\title[Un vaste voisinage pour le VRP]{Un vaste voisinage pour le problème de tournées de véhicules}
+\title[Un vaste voisinage pour les tournées de véhicules]{Un vaste voisinage pour le problème de tournées de véhicules}
 
 \author{Guillaume Pinot}
 
@@ -141,13 +142,6 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Un minimum local}
-
-  \centering
-  \includegraphics[width=0.7\linewidth]{../article/images/C203-2}
-\end{frame}
-
 \section{Le voisinage}
 
 \begin{frame}
@@ -155,6 +149,7 @@
 
   Soit un ensemble de groupes de visites, une tournée candidate est
   une tournée existante à laquelle on peut:
+
   \begin{itemize}
   \item ne rien changer
   \item enlever un groupe
@@ -177,18 +172,19 @@
 
   \centering
   \begin{tikzpicture}[scale=0.07]
+    \draw<+->[white] (72, 37) -- (98, 48) -- (146, 48) -- (146, 46);
     \draw (35, 0) rectangle (45, 1);
     \draw (62, 0) rectangle (72, 1);
     \draw (78, 0) rectangle (88, 1);
     \draw (98, 0) rectangle (108, 1);
     \draw (136, 0) rectangle (146, 1);
-    \draw[red] (172, 0) rectangle (182, 1);
+    \draw (172, 0) rectangle (182, 1);
 
-    \draw (62, 0) -- (62, 26) -- (88, 26) -- (88, 0);
-    \draw (78, 26) -- (78, 30) -- (108, 30) -- (108, 0);
-    \draw (35, 0) -- (35, 37) -- (72, 37) -- (78, 30);
-    \draw (136, 0) -- (136, 46) -- (182, 46) -- (182, 0);
-    \draw (72, 37) -- (98, 48) -- (146, 48) -- (146, 46);
+    \draw<+-> (62, 0) -- (62, 26) -- (88, 26) -- (88, 0);
+    \draw<+-> (78, 26) -- (78, 30) -- (108, 30) -- (108, 0);
+    \draw<+-> (35, 0) -- (35, 37) -- (72, 37) -- (78, 30);
+    \draw<+-> (136, 0) -- (136, 46) -- (182, 46) -- (182, 0);
+    \draw<+-> (72, 37) -- (98, 48) -- (146, 48) -- (146, 46);
   \end{tikzpicture}
 \end{frame}
 
@@ -196,6 +192,7 @@
   \frametitle{Quelques mouvements inclus}
 
   Grâce aux groupes à une visite:
+
   \begin{itemize}
   \item échange de 2 visites entre 2 tours
   \item rotations de $n$ visites entre $n$ tours
@@ -203,11 +200,13 @@
   \end{itemize}
 
   Grâce aux groupes contenant toutes les visites du tour:
+
   \begin{itemize}
   \item fusion de 2 tours en un seul
   \end{itemize}
 
   Grâce à la hiérarchie des groupes:
+
   \begin{itemize}
   \item répartitions des visites d'un tour sur plusieurs tours
   \item répartitions d'un grand nombre de visites d'un tour sur
@@ -263,7 +262,7 @@
   \item Méthode d'insertion: meilleure insersion successive, suivi
     d'une recherche locale 2-opt
   \item Durée de génération des candidats: 1min environ
-  \item Durée de résolution du \foreign{Set Packing Problem}: négligeable
+  \item Durée de résolution du \foreign{Set Packing Problem}: 5s environ
   \item Durée totale d'exécution: 5 min
   \end{itemize}
 \end{frame}
