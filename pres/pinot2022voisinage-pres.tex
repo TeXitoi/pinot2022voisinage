@@ -128,16 +128,16 @@
   \frametitle{Décomposition du VRP}
 
   \begin{itemize}
+  \item Séquencement des visites sur un véhicule (Travelling Salesman Problem)
+    \begin{itemize}
+    \item Vérificateur de contraintes paresseux
+    \item Recherche locale (2-opt, \foreign{etc.})
+    \end{itemize}
   \item Affectation des visites aux véhicules (Set Packing Problem)
     \begin{itemize}
     \item Mouvement simples (ajout d'une visite, suppression d'une
       visite, déplacement d'une visite)
     \item Choix dans un ensemble d'affectations candidates
-    \end{itemize}
-  \item Séquencement des visites sur un véhicule (Travelling Salesman Problem)
-    \begin{itemize}
-    \item Vérificateur de contraintes paresseux
-    \item Recherche locale (2-opt, \foreign{etc.})
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -232,9 +232,8 @@
 
   Résultats:
   \begin{itemize}
-  \item Cx0x: Toujours «Optimal» (sauf 1 avec que l'affectation optimale)
-  \item Rxxx: TODO
-  \item RCxxx: TODO
+  \item C20x: Toujours optimal sauf 1 (chemin améliorable)
+  \item RC2xx: optimal vehicule 1/1, durée moins de 5\% 1/1
   \end{itemize}
 \end{frame}
 
@@ -261,8 +260,8 @@
     déplaçant une visite)
   \item Méthode d'insertion: meilleure insersion successive, suivi
     d'une recherche locale 2-opt
-  \item Durée de génération des candidats: 1min environ
-  \item Durée de résolution du \foreign{Set Packing Problem}: 5s environ
+  \item Durée de génération des candidats: 45s environ
+  \item Durée de résolution du \foreign{Set Packing Problem}: 15s environ
   \item Durée totale d'exécution: 5 min
   \end{itemize}
 \end{frame}
